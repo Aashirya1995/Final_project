@@ -15,7 +15,7 @@ class FlaskrTestCase(unittest.TestCase):
         # Render the / path of the website
         rv = self.app.get('/')
         # Chech that the page contians the desired phrase
-        assert b 'UNH698 Website' in rv.data
+        assert b'UNH698 Website' in rv.data
 
 
 if __name__ == '__main__':
