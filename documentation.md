@@ -17,3 +17,12 @@ Once we have our Github account set up. The next step is to have make a Github r
 
 3. Add a description of your project (optional)
 
+4. Choose between creating a *public* or a *private* repository. For your project you will choose *public*
+
+5. Select ** Initialize this repository with a README.**
+
+6. Click on **Create repository**
+
+CONGRATULATIONS!!!! Your repository is all set. 
+
+
