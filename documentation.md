@@ -25,4 +25,36 @@ Once we have our Github account set up. The next step is to have make a Github r
 
 CONGRATULATIONS!!!! Your repository is all set. 
 
+## Steps to set up the Docker cloud.
 
+Once you have created your Docker Cloud account, next step is to create a repository on Docker Cloud that connects to our Github repository. To do this do the following:
+
+1. Click on the Repositories tab.
+
+2. Then on the "Create" button.
+
+3. Name your repository whatever you like.
+
+4. Add a description. (Optional)
+
+5. Add your github account to the build settings and select the git repository for your project. 
+
+6. Next, click on the "Create" button.
+
+7. Then click on the Builds.
+
+8. Click on the **Configure Automated Builds** 
+
+9. Next, you have to select **Internal Pull Requests**
+
+10. Leave the current build alone.
+
+11. Select Internal Pull Requests
+
+12. Put this in the source box: /^[0-9.]+$/
+
+13. Add release-{sourceref} in the Docker tag box.
+
+14. Next step is to save.
+
+Your Docker is set up now.
