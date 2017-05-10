@@ -10,4 +10,4 @@ def new_page():
     return render_template('new_page.html')
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0')
+    app.run(debug=True,host='0.0.0.0', port=8080)
