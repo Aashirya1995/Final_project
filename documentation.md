@@ -25,7 +25,7 @@ Once we have our Github account set up. The next step is to have make a Github r
 
 CONGRATULATIONS!!!! Your repository is all set. 
 
-## Steps to set up the Docker cloud.
+### Steps to set up the Docker cloud.
 
 Once you have created your Docker Cloud account, next step is to create a repository on Docker Cloud that connects to our Github repository. To do this do the following:
 
@@ -58,3 +58,7 @@ Once you have created your Docker Cloud account, next step is to create a reposi
 14. Next step is to save.
 
 Your Docker is set up now.
+
+## Branch
+
+A branch in Git is simply a lightweight movable pointer to one of these commits. The default brnach name in **Git** is **master**. 

@@ -14,7 +14,7 @@ class FlaskrTestCase(unittest.TestCase):
     def test_home_page(self):
         # Render the / path of the website
         rv = self.app.get('/')
-        # Chech that the page contians the desired phrase
+        # Chech that the page contians the desired phrase. This is a step to do the checks
         assert b'UNH698 Website' in rv.data
 
 
