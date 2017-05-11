@@ -6,7 +6,7 @@
   become: true
   vars:
     unh698_environment: staging
-    unh698_image_version: release-0.0.6
+    unh698_image_version: release-0.0.7
     unh698_host_port: 8081
     unh698_container_port: 5000
   roles:
