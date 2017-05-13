@@ -388,9 +388,26 @@ You need to need the files in roles/docker and once you have made the required c
 		'# Replace xxxxxxx with your AWS username
 		ansible-playbook configure-host.yml -v --extra-vars "student_username=xxxxxxx"'
 
+#### Playbook - deploy-website-staging.yml, deploy-website-production.yml
 
 
+These playbooks deploy and start two versions of your website. One a production instance and second the staging one.
 
+To run the playbooks use the following commands:
+	'ansible-playbook deploy-website-production.yml -v'
+	'ansible-playbook deploy-website-staging.yml -v'
+
+Points to be kept in mind:
+
+1) Staging and production containers are running 'release-#.#.#' versions of the docker image
+
+2) Production instance is your first version.
+
+3) Staging is the second version with more pages.
+
+4) Production instance would be availabe on host's port 8080
+
+5) Staging would be available on 8081.
 
 
 
