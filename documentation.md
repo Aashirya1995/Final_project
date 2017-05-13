@@ -229,10 +229,60 @@ Task 6) Test your web server.
 		a) Before going to a web browser, you can confirm connectivity by 
 			' wget hhtp://awsserver:8080'
 
+## Git Tags
+
+A git tag is a reference to a specific commit hash. Tags are unique and can only point to a signle part of your code. In this project we will be using the tags as version of the docker images built by docker cloud and then use those versioned images to later control what version of the application is running in production.
+
+Note : When you are tagging, make sure your local repo matches with your remote/github version of the repository.
+
+To check that use the following commands :
+	'git checkout master
+	 git pull origin master
+	' 
+Next, you need to set your most recent commit to your repo-test's master branch to 0.0.1
+	'git checkout master
+	 git pull origin master
+	 git tag 0.0.1
+	'
+Now to push this tag on to your github and verify through the User Interface that the tag exists.
+	'git push --tags origin master
+	'
+## Docker cloud settings to build Versioned Images
+
+In oder to see the tag on Docker cloud we will have to make a few changes. Our configuration should be how we set it up in the beginning.
+Now, when you go to ( https://hub.docker.com/ ) and select your repository and then go to tags and you should be able to see your tag here.
+
+## Release the first version 0.0.1 website
+
+To do this you will have use the same 'docker run' command but will have to append with tag version of the image. Mine would look like ak2526/finalproject:release-0.0.1.
+
+## New page
+
+You can add new pages to your website by simply making new html templates and adding new tags and releasing them. To do this the steps to be followed stay the same :
+	a) Once, your build in your branch passes. Merge your github PR
+	b) Pull your newest master changes to your local repo
+		'git checkout master
+		 git pull'
+	c) add your next git tag of whatever you want. For example 0.0.2
+		'git tag 0.0.2'
+	d) push your tags to github
+		'git push --tags origin master'
+
+
 
 ## Ansible
 
-1) What is ansible? To read more about it go on the following link (http://docs.ansible.com/ansible/)
+1) What is ansible? To read more about it go on the following link (http://docs.ansible.com/ansible/) and to see what can be configured with it check the link (http://docs.ansible.com/ansible/list_of_all_modules.html)
+
+2) Install Ansible on your laptop.
+	'pip install ansible'
+
+3) Create the start of your ansible playbooks
+
+Checkout another branch of your repo for your ansible work and in that branch add the following :
+	a) Create an ansible folder
+
+
 
 
 
