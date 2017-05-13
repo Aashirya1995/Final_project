@@ -127,11 +127,11 @@ These are the files that we need in order to run docker containers and to build 
     	unittest.main()
     ```
  4. Add another file 'docker-compose.test.yml ' and add the following code : 
- 
+ 	```bash
  	sut:
   		build: .
   		command: bash ./run-test.sh
-
+  	```	
     	'
 ## Ensure that the test runs, but fails.
 
