@@ -126,7 +126,8 @@ These are the files that we need in order to run docker containers and to build 
 	if __name__ == '__main__':
     	unittest.main()
     ```
- 4. Add another file 'docker-compose.test.yml ' and add the following code : 4
+ 4. Add another file 'docker-compose.test.yml ' and add the following code : 
+ 
  	sut:
   		build: .
   		command: bash ./run-test.sh
