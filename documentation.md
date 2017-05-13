@@ -195,7 +195,44 @@ Task 3) Configure the server. We want all the tools that we need for this assign
 			git clone your_Repo
 			```
 		d) Now, you should be able to run the following commands
+			```bash
+			# This builds a local image of your docker cloud Flask server.
+			docker build -t test .
+			# To verify that git works fine 
+			git log --oneline --decorate
+			```
+Task 4) To pull the latest copy of your public repo-test image. 
+		
+		a) Verify that you have the correct imagge.
+			'docker images'
 
+Task 5) Start a container using your public repo-test image.
+		
+		a) Star a docker container and keep it running in the background. 
+			'
+			sudo docker run -d -p 8080:8080 dockername/reponame python3 unh698.py
+
+			'
+			-d option runs the container in the background and prints container ID
+
+			returns an ID like this “9f54f0be98f9e36b72d4cfae5fc78f6f7123b227a6d40a5a70e5330036412f2d”
+
+			'
+			# Check if the instance is running or not using the following command :
+			docker ps
+			# You should see something like 0.0.0.0:####->####/tcp
+
+			'
+
+Task 6) Test your web server. 
+
+		a) Before going to a web browser, you can confirm connectivity by 
+			' wget hhtp://awsserver:8080'
+
+
+## Ansible
+
+1) What is ansible? To read more about it go on the following link (http://docs.ansible.com/ansible/)
 
 
 
