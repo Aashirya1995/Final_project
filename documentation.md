@@ -381,9 +381,9 @@ We will now be running two instances of your website in seperate containers. As 
 			```
 #### Playbook - configure-host.yml
 	
-	This playbook configures the local machine to run docker. When fixed, the playbook should install and run the community edition of docker found from docker's official apt repository.
+This playbook configures the local machine to run docker. When fixed, the playbook should install and run the community edition of docker found from docker's official apt repository.
 
-	You need to need the files in roles/docker and once you have made the required changes you can run the following command on your AWS instance to see if it worked or not 
+You need to need the files in roles/docker and once you have made the required changes you can run the following command on your AWS instance to see if it worked or not 
 
 		'# Replace xxxxxxx with your AWS username
 		ansible-playbook configure-host.yml -v --extra-vars "student_username=xxxxxxx"'
