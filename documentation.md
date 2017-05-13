@@ -152,5 +152,53 @@ These are the files that we need in order to run docker containers and to build 
 
 1. Before that we need to make sure that you have the following list of things done.
 
-	a) Changes to the 'name_of_your_repo' that passes the python unit test
+		a) Changes to the 'name_of_your_repo' that passes the python unit test.
+		b) Changes have ben mad via a PR
+		c) The last commit should have a check mark on it.
+		d) You should have merged your pull request.
+
+2. Setting up the flask server in AWS.
+
+Task 1) You will have your private ssh key. Create a new folder in your local repo and here is what you need to know, your private ssh kay is like your password you should never push it to your github account because once, it is up anybody can see it. Also, you will be provided with t2.micro instances for your use. 
+		a) Review the different types of instances here : (  https://aws.amazon.com/ec2/instance-types/) 
+
+Task 2) Each of you will have your own instance. 
+		
+		a) You will ssh into a linux server using your sshkey. Once, you have a folder for the sskhey in your local repo, you will 'cd' into that and then run the following command. 
+			'''
+			ssh -i yoursshkey username@awsserver
+			'''
+			yoursshkey will look like - akaushik@21.32.***.2
+			username in this case is - akaushik
+
+Task 3) Configure the server. We want all the tools that we need for this assignment running on this AWS instance.
+
+		a) We need Docker running, so to do that once you have ssh into your server run the following commands
+			```bash
+			sudo apt install docker.io
+			sudo apt-get update
+			sudo usermod -aG docker $(whoami)
+			logout
+			login ( how you logged in your server before )
+
+			```
+		b) To check the docker server is running to the following:
+			```bash
+			# run the following command to check if the docker service is running
+			ps aux | grep docker
+			# Check if you can run a simple container
+			docker run ubuntu:xenial echo "hello world"
+			```
+
+		c) Once, you have your Docker all set up and running on your server. Next step is to clone your repo onto the server. 
+			```bash
+			git clone your_Repo
+			```
+		d) Now, you should be able to run the following commands
+
+
+
+
+
+
 
