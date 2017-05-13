@@ -62,3 +62,68 @@ Your Docker is set up now.
 ## Branch
 
 A branch in Git is simply a lightweight movable pointer to one of these commits. The default brnach name in **Git** is **master**. 
+
+1. Create a new branch using the following command : 
+	'git checkout -b branch name'
+	Once you do that you will notice that from 'master' branch you have been switched to 'branch name' branch.
+
+## Next step is to create the files.
+
+These are the files that we need in order to run docker containers and to build images.
+
+'1. Create a file  'run_test.sh'. Add the following code to the file:
+	```bash
+    #!/bin/bash
+    echo "Running Flask Unit Tests"
+    python3 testName.py
+    ```
+ 2. Next, you need to create a python file and name it anything that you would like. This would include the methods for each of your templates that you would want to display. Add the following code:
+ 	```python
+    from flask import Flask, render_template
+    from prometheus_metrics import setup_metrics
+    app = Flask(__name__)
+    setup_metrics(app) 
+
+    @app.route('/')
+    def run_flask():
+      return render_template('Nameoftemp.html') 
+      
+    if __name__ == '__main__':
+      app.run(debug=True, host='0.0.0.0')
+    ```
+ 3. Now create a another python file that will run own code from the above mentioned python file. Add the following code to this file:
+ 	```python
+ 	import unittest
+
+	import unh698
+
+
+	class FlaskrTestCase(unittest.TestCase):
+
+    	def setUp(self):
+        	self.app = unh698.app.test_client()
+
+    	def tearDown(self):
+        	pass
+
+    	def test_home_page(self):
+        	# Render the / path of the website
+        	rv = self.app.get('/')
+        	# Chech that the page contians the desired phrase
+       	 	assert b'UNH698 Website' in rv.data
+
+    	def test_link_to_my_page(self):
+       	 	rv = self.app.get('/')  
+        	# Search the page contents for the link to your topic page 
+        	# Replace xxxxxxxxxxxx with text you'd expect to see on your main page that links to your subpage
+        	assert b'Topic: DOGS' in rv.data
+
+  
+	if __name__ == '__main__':
+    	unittest.main()
+    ```
+
+    	'
+
+
+
