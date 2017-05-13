@@ -148,6 +148,9 @@ These are the files that we need in order to run docker containers and to build 
 2. Commit and push changes to the github branch. If the test passes, merge and submit a link to your pull request. If the test fails, return to step 4.
 
 
+## By now your Flask server must be complete. Next, step is to set up the Flask server in AWS.
 
+1. Before that we need to make sure that you have the following list of things done.
 
+	a) Changes to the 'name_of_your_repo' that passes the python unit test
 
