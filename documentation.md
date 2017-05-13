@@ -259,6 +259,7 @@ To do this you will have use the same 'docker run' command but will have to appe
 ## New page
 
 You can add new pages to your website by simply making new html templates and adding new tags and releasing them. To do this the steps to be followed stay the same :
+
 	a) Once, your build in your branch passes. Merge your github PR
 	b) Pull your newest master changes to your local repo
 		'git checkout master
@@ -267,6 +268,8 @@ You can add new pages to your website by simply making new html templates and ad
 		'git tag 0.0.2'
 	d) push your tags to github
 		'git push --tags origin master'
+
+After you push your tags, if you go to your Docker cloud you will see a build building in that version suppose 0.0.1. Once, this build is successful. Go to your aws server and pull the most recent version using command 'git pull'
 
 
 
@@ -280,7 +283,121 @@ You can add new pages to your website by simply making new html templates and ad
 3) Create the start of your ansible playbooks
 
 Checkout another branch of your repo for your ansible work and in that branch add the following :
+
 	a) Create an ansible folder
+
+### Ansible deployment
+
+Now you will use an ansible playbook to run the two versions of your website discussed above. The production is the one with first 3 pages of the website and the staging version is the one with additional pages. 
+
+For the deployment you will be provided with a folder with generally structured playbook required to set up docker.
+
+We will now be running two instances of your website in seperate containers. As discussed before the first version will be the production and will be accessible on port 8080 and the second version will be the production which will be accessible on port 8081. 
+
+### Set up
+
+#### a) The AWS servers provided to you will have ansible and git set up on it.
+
+#### b) Copy the 'ansible' folder into your project repository.
+
+#### c) Create a branch, add ansible folder and push the branch to your github repository.
+
+	'git checkout master
+	 git pull
+	 git checkout -b pick-a-branch-name
+	 git add ansible
+	 git commit -m " add a message about what you are doing in this commit"
+	 git push origin pick-a-branch-name'
+
+#### d) Login to your AWS server, clone your repository and switch to your newly created branch. 
+	'cd ~
+	 git clone [your-repo]
+	 cd [your-repo]
+	 git checkout pick-a-branch-name'
+
+#### e) In your ansible folder there will be playbooks. First run the configure-host.yml playbook (on your AWS server). This is done to verify that ansible is set up or not.
+
+	'ansible-playbook configure-host.yml -v --extra-vars "student_username=xxxxxxx"
+	# replace xxxxxxxx with your AWS username. For example mine is akaushik
+	'
+	Make changes to the ansible playbook locally, 'git push' them and then 'git pull' them on your AWS server.
+
+#### f) Fixing the playbooks
+		
+		The three following playbooks should look like this : 
+
+		a) configure-host.yml. Replace the xxxxx and make your playbook look like the following.
+
+			```bash
+			---
+			# This playbook configures the local machine to run docker.
+			# When fixed, the playbook should install and run the
+			# community edition of docker found from docker's official
+			# apt repository.
+		   	-name: Install the community edition of docker
+  			 hosts: localhost
+  			 become: true
+  			 roles:
+    			- docker
+    		```
+
+    	b) deploy-website-production.yml. Again replace the xxxxxx and make it look like the following.
+
+    		```bash
+    		---
+			# The production version of docker-cloud-test should be the image that has just
+			# a main page with the 'UNH698 Website' text.  This version of the website
+			# should be available on port 8080 of your server.
+			- name: Deploy the production version of your website based on the previous tag of your docker-cloud-test image
+			  hosts: localhost
+			  become: true
+			  vars:
+			    unh698_environment: production
+			    unh698_image_version: release-0.0.16
+			    unh698_host_port: 8080
+			    unh698_container_port: 5000
+			  roles:
+			    - unh698
+
+			 ```
+
+		c) deploy-website-staging.yml. Replace the xxxxxx to make it look like the following 
+
+			```bash
+			---
+			# The production version of docker-cloud-test should be the image that includes the website with
+			# your topic subpage.  This version of the website should be available on port 8081 of your server.
+			- name: Deploy the staging version of your website based on the newest tag of your docker-cloud-test image
+			  hosts: localhost
+			  become: true
+			  vars:
+			    unh698_environment: staging
+			    unh698_image_version: release-0.0.18
+			    unh698_host_port: 8081
+			    unh698_container_port: 5000
+			  roles:
+			    - unh698
+
+			```
+#### Playbook - configure-host.yml
+	
+	This playbook configures the local machine to run docker. When fixed, the playbook should install and run the community edition of docker found from docker's official apt repository.
+
+	You need to need the files in roles/docker and once you have made the required changes you can run the following command on your AWS instance to see if it worked or not 
+
+		'# Replace xxxxxxx with your AWS username
+		ansible-playbook configure-host.yml -v --extra-vars "student_username=xxxxxxx"'
+
+
+
+
+
+
+
+
+
+
+
 
 
 
