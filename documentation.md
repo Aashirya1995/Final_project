@@ -77,7 +77,9 @@ These are the files that we need in order to run docker containers and to build 
     echo "Running Flask Unit Tests"
     python3 testName.py
     ```
+
  2. Next, you need to create a python file and name it anything that you would like. This would include the methods for each of your templates that you would want to display. Add the following code:
+
  	```python
     from flask import Flask, render_template
     from prometheus_metrics import setup_metrics
@@ -91,7 +93,9 @@ These are the files that we need in order to run docker containers and to build 
     if __name__ == '__main__':
       app.run(debug=True, host='0.0.0.0')
     ```
+
  3. Now create a another python file that will run own code from the above mentioned python file. Add the following code to this file:
+
  	```python
  	import unittest
 
@@ -122,8 +126,27 @@ These are the files that we need in order to run docker containers and to build 
 	if __name__ == '__main__':
     	unittest.main()
     ```
+ 4. Add another file 'docker-compose.test.yml ' and add the following code : 4
+ 	sut:
+  		build: .
+  		command: bash ./run-test.sh
 
     	'
+## Ensure that the test runs, but fails.
+
+1. Commit the changes to run_test.sh, unh698.py, and unh698_test.py to your branch.
+
+2. Push your branch to your github, and start a pull request.
+
+3. Verify that the build in docker cloud attempts to run the python unit tests but fails. You should see an error like python3: command not found.
+
+## Next, you have to make the test pass.  
+
+1. Make changes to either Dockerfile and/or unh698.py to attempt to make the test pass.
+
+2. Commit and push changes to the github branch. If the test passes, merge and submit a link to your pull request. If the test fails, return to step 4.
+
+
 
 
 
