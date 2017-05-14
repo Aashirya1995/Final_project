@@ -13,6 +13,10 @@ def new_page():
 @app.route('/new_page2')
 def new_page2():
     return render_template('new_page2.html')
+@app.route('/new_page3')
+def new_page3():
+    return render_template('new_page3.html')
+
 
 
 if __name__ == '__main__':
