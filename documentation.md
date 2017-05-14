@@ -236,14 +236,16 @@ A git tag is a reference to a specific commit hash. Tags are unique and can only
 Note : When you are tagging, make sure your local repo matches with your remote/github version of the repository.
 
 To check that use the following commands :
-	'git checkout master
-	 git pull origin master
-	' 
+
+	'git checkout master'
+	'git pull origin master'
+	 
 Next, you need to set your most recent commit to your repo-test's master branch to 0.0.1
-	'git checkout master
-	 git pull origin master
-	 git tag 0.0.1
-	'
+
+	'git checkout master'
+	'git pull origin master'
+	'git tag 0.0.1'
+	
 Now to push this tag on to your github and verify through the User Interface that the tag exists.
 	'git push --tags origin master
 	'
@@ -254,7 +256,7 @@ Now, when you go to ( https://hub.docker.com/ ) and select your repository and t
 
 ## Release the first version 0.0.1 website
 
-To do this you will have use the same 'docker run' command but will have to append with tag version of the image. Mine would look like ak2526/finalproject:release-0.0.1.
+To do this you will have use the same 'docker run' command but will have to append with tag version of the image. Mine would look like 'ak2526/finalproject:release-0.0.1.'
 
 ## New page
 
@@ -262,11 +264,16 @@ You can add new pages to your website by simply making new html templates and ad
 
 	a) Once, your build in your branch passes. Merge your github PR
 	b) Pull your newest master changes to your local repo
-		'git checkout master
-		 git pull'
+
+		'git checkout master'
+		'git pull'
+
 	c) add your next git tag of whatever you want. For example 0.0.2
+
 		'git tag 0.0.2'
+
 	d) push your tags to github
+
 		'git push --tags origin master'
 
 After you push your tags, if you go to your Docker cloud you will see a build building in that version suppose 0.0.1. Once, this build is successful. Go to your aws server and pull the most recent version using command 'git pull'
@@ -278,6 +285,7 @@ After you push your tags, if you go to your Docker cloud you will see a build bu
 1) What is ansible? To read more about it go on the following link (http://docs.ansible.com/ansible/) and to see what can be configured with it check the link (http://docs.ansible.com/ansible/list_of_all_modules.html)
 
 2) Install Ansible on your laptop.
+
 	'pip install ansible'
 
 3) Create the start of your ansible playbooks
