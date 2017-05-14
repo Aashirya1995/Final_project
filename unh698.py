@@ -14,7 +14,7 @@ def new_page():
 def new_page2():
     return render_template('new_page2.html')
 @app.route('/new_page3')
-def new_page2():
+def new_page3():
     return render_template('new_page3.html')
 
 
