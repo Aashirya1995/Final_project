@@ -18,6 +18,10 @@ Once we have our Github account set up. The next step is to have make a Github r
 
 2. Enter a name for your project
 
+
+![image4](https://github.com/Aashirya1995/Final_project/blob/master/images/file4.PNG)
+
+
 3. Add a description of your project (optional)
 
 4. Choose between creating a *public* or a *private* repository. For your project you will choose *public*
