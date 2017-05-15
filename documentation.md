@@ -70,6 +70,12 @@ Once you have created your Docker Cloud account, next step is to create a reposi
 
 Your Docker is set up now.
 
+## Flask
+
+Flask is a web framework. This means flask provides you with tools,vlibraries and technologies allow you to build a web application.This web application can be some web pages, a blog, a wiki or go as big as a web-based calendar application or a commercial website.
+
+[Flask](http://flask.pocoo.org/)
+
 ## Branch
 
 A branch in Git is simply a lightweight movable pointer to one of these commits. The default brnach name in **Git** is **master**. 
@@ -82,14 +88,14 @@ A branch in Git is simply a lightweight movable pointer to one of these commits.
 
 These are the files that we need in order to run docker containers and to build images.
 
-'1. Create a file  'run_test.sh'. Add the following code to the file:
+1. Create a file  'run_test.sh'. Add the following code to the file:
 	```bash
     #!/bin/bash
     echo "Running Flask Unit Tests"
     python3 testName.py
     ```
 
- 2. Next, you need to create a python file and name it anything that you would like. This would include the methods for each of your templates that you would want to display. Add the following code:
+2. Next, you need to create a python file and name it anything that you would like. This would include the methods for each of your templates that you would want to display. Add the following code:
 
  	```python
     from flask import Flask, render_template
@@ -104,8 +110,19 @@ These are the files that we need in order to run docker containers and to build 
     if __name__ == '__main__':
       app.run(debug=True, host='0.0.0.0')
     ```
+What did the above code do?
 
- 3. Now create a another python file that will run own code from the above mentioned python file. Add the following code to this file:
+	a) We imported the *Flask* class. An instance of this class will be our WSGI application
+
+	b) Next we create an instance of this class. The first argument is the name of the application’s module or package. If you are using a single module (as in this example), you should use __name__ because depending on if it’s started as application or imported as module the name will be different ('__main__' versus the actual import name). This is needed so that Flask knows where to look for templates, static files, and so on. For more information have a look at the *Flask* documentation.
+
+	c) We then use *route()* decorator to tell Flask what URL should trigger our function.
+
+	d) The function is given a name which is also used to generate URLs for that particular function, and returns the message we want to display in the user's browser.
+
+Next you just have to save it as a python file. Make sure to not call your application 'flask.py' because then this would conflict with Flask itself
+
+3. Now create a another python file that will run own code from the above mentioned python file. Add the following code to this file:
 
  	```python
  	import unittest
@@ -137,7 +154,7 @@ These are the files that we need in order to run docker containers and to build 
 	if __name__ == '__main__':
     	unittest.main()
     ```
- 4. Add another file 'docker-compose.test.yml ' and add the following code : 
+4. Add another file 'docker-compose.test.yml ' and add the following code : 
  	```bash
  	sut:
   		build: .
@@ -146,13 +163,16 @@ These are the files that we need in order to run docker containers and to build 
     	'
 ## Ensure that the test runs, but fails.
 
+
 1. Commit the changes to run_test.sh, unh698.py, and unh698_test.py to your branch.
 
 2. Push your branch to your github, and start a pull request.
 
 3. Verify that the build in docker cloud attempts to run the python unit tests but fails. You should see an error like python3: command not found.
 
+
 ## Next, you have to make the test pass.  
+
 
 1. Make changes to either Dockerfile and/or unh698.py to attempt to make the test pass.
 
@@ -161,6 +181,7 @@ These are the files that we need in order to run docker containers and to build 
 
 ## By now your Flask server must be complete. Next, step is to set up the Flask server in AWS.
 
+
 1. Before that we need to make sure that you have the following list of things done.
 
 		a) Changes to the 'name_of_your_repo' that passes the python unit test.
@@ -168,10 +189,12 @@ These are the files that we need in order to run docker containers and to build 
 		c) The last commit should have a check mark on it.
 		d) You should have merged your pull request.
 
+
 2. Setting up the flask server in AWS.
 
 Task 1) You will have your private ssh key. Create a new folder in your local repo and here is what you need to know, your private ssh kay is like your password you should never push it to your github account because once, it is up anybody can see it. Also, you will be provided with t2.micro instances for your use. 
 		a) Review the different types of instances here : (  https://aws.amazon.com/ec2/instance-types/) 
+
 
 Task 2) Each of you will have your own instance. 
 		
@@ -181,6 +204,7 @@ Task 2) Each of you will have your own instance.
 			'''
 			yoursshkey will look like - akaushik@21.32.***.2
 			username in this case is - akaushik
+
 
 Task 3) Configure the server. We want all the tools that we need for this assignment running on this AWS instance.
 
@@ -211,11 +235,14 @@ Task 3) Configure the server. We want all the tools that we need for this assign
 			docker build -t test .
 			# To verify that git works fine 
 			git log --oneline --decorate
+
 			```
+
 Task 4) To pull the latest copy of your public repo-test image. 
 		
 		a) Verify that you have the correct imagge.
 			'docker images'
+
 
 Task 5) Start a container using your public repo-test image.
 		
@@ -235,10 +262,12 @@ Task 5) Start a container using your public repo-test image.
 
 			'
 
+
 Task 6) Test your web server. 
 
 		a) Before going to a web browser, you can confirm connectivity by 
 			' wget hhtp://awsserver:8080'
+
 
 ## Git Tags
 
@@ -260,14 +289,17 @@ Next, you need to set your most recent commit to your repo-test's master branch 
 Now to push this tag on to your github and verify through the User Interface that the tag exists.
 	'git push --tags origin master
 	'
+
 ## Docker cloud settings to build Versioned Images
 
 In oder to see the tag on Docker cloud we will have to make a few changes. Our configuration should be how we set it up in the beginning.
 Now, when you go to ( https://hub.docker.com/ ) and select your repository and then go to tags and you should be able to see your tag here.
 
+
 ## Release the first version 0.0.1 website
 
 To do this you will have use the same 'docker run' command but will have to append with tag version of the image. Mine would look like 'ak2526/finalproject:release-0.0.1.'
+
 
 ## New page
 
@@ -434,6 +466,7 @@ To run the playbooks use the following commands:
 	This will go through the deplot-website-staging.yml, you will see a similar picture. If any test fails it will show in red. 
 
 ![image2](https://github.com/Aashirya1995/Final_project/blob/master/images/file2.png)
+
 
 Points to be kept in mind:
 
