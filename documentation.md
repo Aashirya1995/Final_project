@@ -38,6 +38,10 @@ Once you have created your Docker Cloud account, next step is to create a reposi
 
 1. Click on the Repositories tab.
 
+
+![image5](https://github.com/Aashirya1995/Final_project/blob/master/images/file5.png)
+
+
 2. Then on the "Create" button.
 
 3. Name your repository whatever you like.
