@@ -276,9 +276,19 @@ You can add new pages to your website by simply making new html templates and ad
 
 		'git push --tags origin master'
 
-After you push your tags, if you go to your Docker cloud you will see a build building in that version suppose 0.0.1. Once, this build is successful. Go to your aws server and pull the most recent version using command 'git pull'
+After you push your tags, if you go to your Docker cloud you will see a build building in that version suppose 0.0.1. Once, this build is successful. Go to your aws server and pull the most recent version using command 'git pull'.
 
 
+## Points to keep in mind for Docker images.
+
+If you keep pulling images down from docker to your AWS server, if it exceedes a certain limit it might give you an error 'not enough space' to fix that you can do the following :
+
+	'docker images 
+	 docker rmi [image name]
+	'
+When you run 'docker images' it will display all the images and you can decide which ones you want to remove. They will still be on docker hub in case you need to pull them down again using the following command:
+
+	'docker pull ak2526/finalproject:release-0.0.#'
 
 ## Ansible
 
@@ -403,7 +413,16 @@ These playbooks deploy and start two versions of your website. One a production 
 
 To run the playbooks use the following commands:
 	'ansible-playbook deploy-website-production.yml -v'
+
+	This will go through the deploy-website-production.yml file and run the test and if everything works fine you will see something like this
+
+	!Image1 (C:\Users\Aashirya\Desktop\file1.PNG)
+
 	'ansible-playbook deploy-website-staging.yml -v'
+
+	This will go through the deplot-website-staging.yml, you will see a similar picture. If any test fails it will show in red. 
+
+	!Image2 (C:\Users\Aashirya\Desktop\file2.PNG)
 
 Points to be kept in mind:
 
