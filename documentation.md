@@ -12,7 +12,7 @@ Once we have our Github account set up. The next step is to have make a Github r
 ### Steps to create a Github Respository
 
 1. Sign in to your account on [Github:]( https://github.com/) and on the upper-right corner of any page, click +, and then click on **New repository**
-![image1](https://github.com/Aashirya1995/Final_project/blob/master/images/file3.PNG)
+![image3](https://github.com/Aashirya1995/Final_project/blob/master/images/file3.png)
 
 2. Enter a name for your project
 
