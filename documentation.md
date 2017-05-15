@@ -416,13 +416,13 @@ To run the playbooks use the following commands:
 
 	This will go through the deploy-website-production.yml file and run the test and if everything works fine you will see something like this
 
-	![image] (C:\Users\Aashirya\Desktop\file1.PNG)
+	![image1](https://github.com/Aashirya1995/Final_project/blob/master/templates/file1.PNG)
 
 	'ansible-playbook deploy-website-staging.yml -v'
 
 	This will go through the deplot-website-staging.yml, you will see a similar picture. If any test fails it will show in red. 
 
-	![image] (C:\Users\Aashirya\Desktop\file2.PNG)
+	![image2](https://github.com/Aashirya1995/Final_project/blob/master/templates/file2.png)
 
 Points to be kept in mind:
 
