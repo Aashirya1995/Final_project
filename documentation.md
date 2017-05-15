@@ -168,7 +168,7 @@ Next you just have to save it as a python file. Make sure to not call your appli
 
 2. Push your branch to your github, and start a pull request.
 
-3. Verify that the build in docker cloud attempts to run the python unit tests but fails. You should see an error like python3: command not found.
+3. Verify that the build in docker cloud attempts to run the python unit tests but fails. You should see an error like python3: command not found. 
 
 
 ## Next, you have to make the test pass.  
